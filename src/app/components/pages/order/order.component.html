@@ -1,0 +1,124 @@
+<div class="container py-5 text-center justify-content-center">
+  <section>
+    <div class="form col-md-8 col-12 mx-auto">
+      <h2 class="my-5 lh-1 fw-bold" *ngIf="!orderSuccess">Сделать заказ</h2>
+      <form [formGroup]="formValues" class="needs-validation row g-3 text-start m-auto w-75" novalidate *ngIf="!orderSuccess">
+        <div class="row">
+
+          <div class="col-12">
+            <label for="inputProduct" class="form-label fw-bolder">Товар</label>
+            <input type="text" class="form-control" id="inputProduct" formControlName="productTitle"
+                   [attr.disabled]="true">
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <label for="name" class="form-label fw-bolder">Имя</label>
+            <input type="text" class="form-control" id="name"
+                   formControlName="name" required>
+
+            <div class="w-100" *ngIf="formValues.get('name')?.invalid
+                  && (formValues.get('name')?.touched || formValues.get('name')?.dirty)">
+              <div class="invalid-feedback" *ngIf="formValues.get('name')?.errors?.['required']">
+                Введите имя!
+              </div>
+              <div class="invalid-feedback" *ngIf="formValues.get('name')?.errors?.['pattern']">
+                Поле "Имя" может содержать только буквы!
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <label for="inputFirstName" class="form-label fw-bolder">Фамилия</label>
+            <input type="text" class="form-control" id="inputFirstName" formControlName="lastName">
+
+            <div class="w-100" *ngIf="formValues.get('lastName')?.invalid
+                  && (formValues.get('lastName')?.touched || formValues.get('lastName')?.dirty)">
+              <div class="invalid-feedback" *ngIf="formValues.get('lastName')?.errors?.['required']">
+                Введите фамилию!
+              </div>
+              <div class="invalid-feedback" *ngIf="formValues.get('lastName')?.errors?.['pattern']">
+                Поле "Фамилия" может содержать только буквы!
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <label for="inputPhone" class="form-label fw-bolder">Телефон</label>
+            <input type="tel" class="form-control" id="inputPhone" formControlName="phone">
+
+            <div class="w-100" *ngIf="formValues.get('phone')?.invalid
+                  && (formValues.get('phone')?.touched || formValues.get('phone')?.dirty)">
+              <div class="invalid-feedback" *ngIf="formValues.get('phone')?.errors?.['required']">
+                Введите номер телефона!
+              </div>
+              <div class="invalid-feedback" *ngIf="formValues.get('phone')?.errors?.['pattern']">
+                Поле "Телефон" должно содержать 11 цифр со знаком "+" в начале или без него!
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <label for="inputCountry" class="form-label fw-bolder">Страна</label>
+            <input type="text" class="form-control" id="inputCountry" formControlName="country">
+
+            <div class="w-100" *ngIf="formValues.get('country')?.invalid
+                  && (formValues.get('country')?.touched || formValues.get('country')?.dirty)">
+              <div class="invalid-feedback" *ngIf="formValues.get('country')?.errors?.['required']">
+                Введите название страны!
+              </div>
+              <div class="invalid-feedback" *ngIf="formValues.get('country')?.errors?.['pattern']">
+                Поле "Страна" может содержать только буквы!
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <label for="zipInput" class="form-label fw-bolder">Индекс</label>
+            <input type="number" class="form-control" id="zipInput" formControlName="zip">
+
+            <div class="w-100" *ngIf="formValues.get('zip')?.invalid
+                  && (formValues.get('zip')?.touched || formValues.get('zip')?.dirty)">
+              <div class="invalid-feedback" *ngIf="formValues.get('zip')?.errors?.['required']">
+                Введите индекс!
+              </div>
+              <div class="invalid-feedback" *ngIf="formValues.get('zip')?.errors?.['pattern']">
+                Поле "Индекс" должно содержать 6 цифр!
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress" class="form-label fw-bolder">Адрес</label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="address">
+
+            <div class="w-100" *ngIf="formValues.get('address')?.invalid
+                  && (formValues.get('address')?.touched || formValues.get('address')?.dirty)">
+              <div class="invalid-feedback" *ngIf="formValues.get('address')?.errors?.['required']">
+                Введите адрес!
+              </div>
+              <div class="invalid-feedback" *ngIf="formValues.get('address')?.errors?.['pattern']">
+                Поле "Адрес" может содержать только буквы, цифры, пробелы, знаки "-" и "/"!
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="inputComment" class="form-label fw-bolder">Комментарий к заказу</label>
+            <textarea type="text" class="form-control" id="inputComment" formControlName="comment"></textarea>
+          </div>
+
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary px-4 hvr-grow-shadow" id="create_order" (click)="createOrder()" [disabled]="isLoading">
+              Отправить
+            </button>
+            <div id="card-error" class="invalid-feedback" *ngIf="orderNotSuccess">Произошла ошибка. Попробуйте еще раз.</div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card mx-auto py-5 w-50" id="card" *ngIf="orderSuccess">
+      <h2 class="card-body fw-bold">
+        Спасибо за заказ! Мы свяжемся с вами в ближайшее время!
+      </h2>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,15 @@
+<div class="container py-5 text-center justify-content-center">
+  <div class="parent-container">
+    <div class="text-start d-flex flex-column">
+      <a class="w-50 mx-auto" href="{{product.image}}">
+        <img src="{{product.image}}" class="card-img-top" alt="Детокс чай лайм">
+      </a>
+      <div class="card-body d-flex flex-column text-center">
+        <h3 class="card-title h5 fw-bold">{{product.title}}</h3>
+        <h3 class="card-title h5 fw-bold">{{product.price | price}}</h3>
+        <p class="card-text">{{product.description}}</p>
+        <a routerLink="/order" [queryParams]="{product: product.title}"  class="btn btn-primary w-50 mx-auto">Купить</a>
+      </div>
+    </div>
+  </div>
+</div>
