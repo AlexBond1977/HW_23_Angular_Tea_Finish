@@ -1,0 +1,69 @@
+<div class="container py-5 text-center justify-content-center">
+  <section class="banner">
+    <div class="text-start z-3 ">
+      <h2 class="h1 fw-bold mb-lg-5 mb-1 ">Большое разнообразие чаев!</h2>
+      <p class="py-md-4 py-sm-0 py-0 mb-lg-5 mb-sm-0 fs-3 d-sm-block d-none">Хотите узнать все подробности? Заполните заявку!</p>
+      <a routerLink="/catalog" class="btn btn-primary px-sm-4 px-5">Заказать</a>
+    </div>
+  </section>
+
+  <section class="container pt-4 mb-5">
+    <h2 class="text-center fs-1 fw-bold mb-5 mb-md-4 mb-sm-3 mb-2">Ответы на часто задаваемые вопросы</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-sm-10 col-xs-12">
+        <div class="text-start" id="accordion">
+          <h3 class="bg-primary mb-3 text-white p-4 border-0 rounded-4 fw-bold mb-lg-3 mb-md-2 mb-sm-1 fs-4">Собираете
+            ли вы подарочные
+            боксы?</h3>
+          <div class="border-0">
+            <p class="mb-0 fs-6">
+              Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+            </p>
+          </div>
+          <h3 class="bg-primary mb-3 text-white p-4 border-0 rounded-4 fw-bold mb-lg-3 mb-md-2 mb-sm-1 fs-4">Сколько у
+            вас разновидностей
+            чая?</h3>
+          <div class="border-0">
+            <p class="mb-0 fs-6">
+              В нашей коллекции более 25 разновидностей чая на любой вкус!
+            </p>
+          </div>
+          <h3 class="bg-primary mb-3 text-white p-4 border-0 rounded-4 fw-bold mb-lg-3 mb-md-2 mb-sm-1 fs-4">В какой
+            срок осуществляется
+            доставка?</h3>
+          <div class="border-0">
+            <p class="mb-0 fs-6">
+              Доставка осуществляется в течение 24 часов с момента оформления заявки!
+            </p>
+          </div>
+          <h3 class="bg-primary mb-3 text-white p-4 border-0 rounded-4 fw-bold mb-lg-3 mb-md-2 mb-sm-1 fs-4">У вас
+            обновляется
+            ассортимент?</h3>
+          <div class="border-0">
+            <p class="mb-0 fs-6">
+              Наши специалисты постоянно отслеживают тенденции на рынке чая, оперативно реагируя на
+              возникающие потребности и предлагая новинки, пользующиеся повышенным спросом.
+            </p>
+          </div>
+          <h3 class="bg-primary mb-3 text-white p-4 border-0 rounded-4 fw-bold mb-lg-3 mb-md-2 mb-sm-1 fs-4">Какого
+            объема у вас пачки
+            чая?</h3>
+          <div class="border-0">
+            <p class="mb-0 fs-6">
+              Стандартно мы предлагаем фасовку чая по 25, 50 и 100 грамм. По желанию клиента имеем возможность
+              упаковать чай в красивые пакеты по 250, 500 и 1000 грамм.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="popup-bg" *ngIf="popupOnView">
+    <div class="popup-text">
+      Посмотрите наши чайные коллекции!
+    </div>
+    <a class="btn btn-success" routerLink="catalog">Смотреть</a>
+  </div>
+    <footer-component></footer-component>
+</div>
