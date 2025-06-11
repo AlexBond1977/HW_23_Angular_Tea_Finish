@@ -10,6 +10,7 @@ import {OrderModule} from "./features/order/order.module";
 import {ProductsModule} from "./features/products/products.module";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {FormsModule} from "@angular/forms";
         AppRoutingModule,
         HttpClientModule,
         NgbModule,
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
